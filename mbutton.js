@@ -1,0 +1,1 @@
+document.write('<img src="img/menubutton.gif" width=148 height=42 border="0" alt="Menu">');

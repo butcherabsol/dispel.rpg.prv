@@ -1,0 +1,45 @@
+      <!--
+      BODY	{
+       background: #000000;
+       SCROLLBAR-FACE-COLOR: #494955; 
+       SCROLLBAR-HIGHLIGHT-COLOR: #494955; 
+       SCROLLBAR-SHADOW-COLOR: #494955; 
+       SCROLLBAR-ARROW-COLOR: black; 
+       SCROLLBAR-TRACK-COLOR: black;
+       SCROLLBAR-DARKSHADOW-COLOR:black; 
+       SCROLLBAR-3DLIGHT-COLOR: black
+	}
+      A:link    {
+        color:#ffffff; font-weight:none; font-style:none; text-decoration:none;
+	}
+      A:visited {
+        color:#ffffff; font-weight:none; text-decoration:none;
+	}
+      A:hover   {
+        color:yellow; font-weight:none; font-style:normal; text-decoration:none;
+	}
+      .menu     {
+        COLOR: #ffffff; FONT-FAMILY: Arial; FONT-SIZE: 11pt; HEIGHT: 16px; font-weight : bold; cursor:hand; TEXT-DECORATION: none; WIDTH: 100%
+	}
+      .dis      {
+        font: 11pt/12pt verdana; color: #D69452; font-weight : none;
+	}
+      .dis1     {
+        font: 8pt/9pt verdana; color: #D69452; font-weight : none;
+	}
+      .dis2     {
+        font: 11pt/12pt verdana; color: Orange; font-weight : bold;
+	}
+      .dis3     {
+        font: 11pt/12pt verdana; color: #F65102; font-weight : bold;
+	}
+      B         {
+	color : orange; text-decoration : none; font-family : verdana ;
+        }
+      #background {
+        font: 16pt arial; color: #FD9430; font-weight : bold;
+        }
+      #foreground {
+        font: 16pt arial; color: #E92006; font-weight : bold;
+        }
+      -->
