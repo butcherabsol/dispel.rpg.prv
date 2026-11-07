@@ -11,7 +11,7 @@
 <style>
 .map-layout { display: flex; align-items: stretch; gap: 24px; }
 .map-list { flex: 0 0 330px; position: relative; margin-bottom: 0; padding: 0 0 60px 20px; }
-.map-return { position: absolute; bottom: 0; left: 20px; list-style: none; }
+.map-return { position: absolute; bottom: 16px; left: 20px; list-style: none; }
 .map-return img, .map-theme-arrow img { display: block; }
 .map-preview { flex: 1; min-width: 0; margin: 0; display: flex; flex-direction: column; align-items: flex-start; }
 .map-canvas:not([hidden]) { width: min(502px, 100%); aspect-ratio: 1; background: white; display: flex; align-items: flex-start; justify-content: center; }
@@ -20,14 +20,14 @@
 .map-region { display: inline-block; margin: 12px 0; }
 .map-region:first-child { margin-top: 0; }
 .map-canvas.dark { filter: invert(1) hue-rotate(180deg); }
-.map-theme-arrow { display: inline-block; padding: 0; margin-top: auto; margin-bottom: 0; border: 0; background: transparent; cursor: pointer; }
+.map-theme-arrow { display: inline-block; padding: 0; margin-top: auto; margin-bottom: 16px; border: 0; background: transparent; cursor: pointer; }
 .map-theme-arrow[hidden] { display: none; }
 @media (max-width: 800px) {
   .map-layout { flex-wrap: wrap; }
   .map-list { flex-basis: 100%; padding-bottom: 0; }
-  .map-return { position: static; margin: 10px 0 5px; }
+  .map-return { position: static; margin: 0 0 16px; }
   .map-preview { flex-basis: 100%; }
-  .map-theme-arrow { margin-top: 10px; margin-bottom: 0; }
+  .map-theme-arrow { margin-top: 0; margin-bottom: 16px; }
 }
 </style>
 </head>
@@ -130,12 +130,12 @@ Mapy są dziełem Kuczego, bardzo się napracował, więc Wszelkie Prawa Zastrze
 <li>2 poziom Lochu Balroka<br>
 <li><a href="mapy/mapa2.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa2.gif" target="_blank">Loch Rożców Spuki (Sanktuarium Rożców Corzonów)</a><br>
 <br>
-<li class="map-return"><a href="#up"><img src="img/back.gif" width="33" height="34" border="0" alt="Do góry"></a></li>
+<li class="map-return"><a href="index.html"><img src="img/back.gif" width="33" height="34" border="0" alt="Wstęp"></a></li>
 </ul>
 <figure class="map-preview" aria-live="polite">
   <figcaption id="map-caption">Wybierz mapę z listy.</figcaption>
   <div class="map-canvas dark" id="map-canvas" hidden><img id="map-image" alt="" hidden></div>
-  <button class="map-theme-arrow" id="map-theme-arrow" type="button" aria-label="Zmień tryb jasny lub ciemny mapy" aria-pressed="true" hidden><img id="map-theme-icon" src="img/map-mode-dark.png" style="width: 49.5px; height: 51px;" alt=""></button>
+  <button class="map-theme-arrow" id="map-theme-arrow" type="button" aria-label="Zmień tryb jasny lub ciemny mapy" aria-pressed="true" hidden><img id="map-theme-icon" src="img/map-mode-light.png" width="33" height="34" alt=""></button>
 </figure>
 </div>
 </div>
@@ -143,12 +143,12 @@ Mapy są dziełem Kuczego, bardzo się napracował, więc Wszelkie Prawa Zastrze
 function toggleMapTheme() {
   var dark = document.getElementById('map-canvas').classList.toggle('dark');
   document.getElementById('map-theme-arrow').setAttribute('aria-pressed', String(dark));
-  document.getElementById('map-theme-icon').src = dark ? 'img/map-mode-dark.png' : 'img/map-mode-light.png';
+  document.getElementById('map-theme-icon').src = dark ? 'img/map-mode-light.png' : 'img/map-mode-dark.png';
 }
 document.getElementById('map-theme-arrow').addEventListener('click', toggleMapTheme);
 document.getElementById('map-list').addEventListener('click', function (event) {
   var link = event.target.closest('a');
-  if (!link || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+  if (!link || !link.getAttribute('href').startsWith('mapy/') || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
   event.preventDefault();
   var image = document.getElementById('map-image');
   var name = link.textContent.trim();
