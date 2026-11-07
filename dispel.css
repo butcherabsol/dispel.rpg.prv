@@ -43,3 +43,29 @@
         font: 16pt arial; color: #E92006; font-weight : bold;
         }
       -->
+/* Site width control, styled to match the original menu buttons. */
+.width-button {
+  display: block;
+  width: 148px;
+  min-height: 42px;
+  margin: 4px auto;
+  padding: 4px 8px;
+  border: 0;
+  background: #222 url('img/button.gif') center / 100% 100% no-repeat;
+  color: #fff;
+  font: bold 10px Arial, sans-serif;
+  cursor: pointer;
+}
+.width-button:hover, .width-button:focus-visible { color: yellow; }
+
+/* The menu text has its own color, so highlight it through the parent link. */
+a:hover .menu, a:focus-visible .menu { color: yellow; }
+
+/* Space between page content and the right-hand border. */
+body > table:nth-of-type(3) > tbody > tr > td.dis { padding-right: 16px; }
+
+/* Keep section headings red when hovered. */
+a.dis3:hover { color: #F65102; }
+
+/* Category headings match the map preview title. */
+a.category-heading, a.category-heading:hover { font: bold 11pt/12pt Verdana, sans-serif; color: orange; }
