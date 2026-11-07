@@ -8,6 +8,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="dispel.css" tppabs="http://free.of.pl/d/dispel/dispel.css" type="text/css">
 <script language="JavaScript" src="opisy.js" tppabs="http://free.of.pl/d/dispel/opisy.js"></script>
+<style>
+.advice-layout { display: flex; align-items: flex-start; gap: 32px; }
+.advice-list { flex: 1; min-width: 0; }
+.stuff-column { flex: 1; min-width: 0; }
+.stuff-column iframe { display: block; width: 100%; height: 1000px; border: 0; }
+@media (max-width: 800px) { .advice-layout { flex-wrap: wrap; } .advice-list, .stuff-column { flex-basis: 100%; } }
+</style>
 </head>
 <body id="up" bgcolor="black" style="font-family: Courier New; font-size: 10pt; color:grey" marginwidth="0" marginheight="0" leftmargin="0" rightmargin="0" topmargin="0">
 <table bgcolor="black" border="0" cellpadding="0" cellspacing="0" width="100%" height="200">
@@ -47,9 +54,6 @@
 <tr><td valign="middle" background="img/button.gif" tppabs="http://free.of.pl/d/dispel/img/button.gif" width=148 height=42 border="0"> 
         <A title="Bestiariusz" href="bestiariusz.html" tppabs="http://free.of.pl/d/dispel/bestiariusz.html" onMouseover="write_it('Wspułczynniki wszystkich potworów.');return true;" onMouseout="write_it('');return true;">
 <div align="center" class="menu">BESTIARIUSZ</div></a></td></tr><tr height="2"></tr>
-<tr><td valign="middle" background="img/button.gif" tppabs="http://free.of.pl/d/dispel/img/button.gif" width=148 height=42 border="0"> 
-        <A title="Porady" href="porady.html" tppabs="http://free.of.pl/d/dispel/porady.html" onMouseover="write_it('Co, gdzie i ile kosztuje? Jak naprawić błędy? Porady dla graczy.');return true;" onMouseout="write_it('');return true;">
-<div align="center" class="menu">PORADY</div></a></td></tr><tr height="2"></tr>
 <tr><td valign="middle" background="img/button.gif" tppabs="http://free.of.pl/d/dispel/img/button.gif" width=148 height=42 border="0">   
         <A title="Screeny" href="screeny.html" tppabs="http://free.of.pl/d/dispel/screeny.html" onMouseover="write_it('Screeny i animowane gify z gry.');return true;" onMouseout="write_it('');return true;">
 <div align="center" class="menu">SCREENY</div></a></td></tr><tr height="2"></tr>
@@ -60,8 +64,8 @@
         <A title="Kontakt" href="kontakt.html" tppabs="http://free.of.pl/d/dispel/kontakt.html" onMouseover="write_it('Maile twórców strony.');return true;" onMouseout="write_it('');return true;">
 <div align="center" class="menu">KONTAKT</div></a></td></tr><tr height="2"></tr>
 <tr><td valign="middle" background="img/button.gif" tppabs="http://free.of.pl/d/dispel/img/button.gif" width=148 height=42 border="0">
-        <A title="Stuff" href="stuff.html" tppabs="http://free.of.pl/d/dispel/stuff.html" onMouseover="write_it('Artykuły, recenzje, teksty, opisy itd.');return true;" onMouseout="write_it('');return true;">
-<div align="center" class="menu">STUFF</div></a></td></tr><tr height="2"></tr>
+        <A title="Porady / Stuff" href="porady.html" tppabs="http://free.of.pl/d/dispel/stuff.html" onMouseover="write_it('Artykuły, recenzje, teksty, opisy itd.');return true;" onMouseout="write_it('');return true;">
+<div align="center" class="menu">PORADY / STUFF</div></a></td></tr><tr height="2"></tr>
 </tbody></table></center>
 <br><center>
         <hr width="140" style="5">
@@ -74,6 +78,7 @@
         </center></td>
       <td width="100%" background=""  class="dis" valign="top" style="position: relative;"><br><ul style="padding-bottom: 70px;">
 <!---------------GŁÓWNY STUFF-------------------->
+<div class="advice-layout"><div class="advice-list">
 <a class="dis3">PORADY</a><br><br>
 <li><b>Handel</b><br>
 (Czyli co kupić, gdzie sprzedać i u kogo się uczyć ?)
@@ -101,6 +106,15 @@
 <a href="zrodlo4.html" tppabs="http://free.of.pl/d/dispel/zrodlo4.html">Leczące/Modyfikatory</a><br>
 <a href="zrodlo2.html" tppabs="http://free.of.pl/d/dispel/zrodlo2.html">Różne</a><br>
 <a href="zrodlo3.html" tppabs="http://free.of.pl/d/dispel/zrodlo3.html">Do questów</a><br>
+</div>
+<div class="stuff-column"><iframe id="stuff-frame" src="stuff.html?embed=1" title="Stuff" scrolling="no"></iframe></div>
+</div>
+<script>
+window.addEventListener('message', function (event) {
+  var frame = document.getElementById('stuff-frame');
+  if (event.source === frame.contentWindow && event.data && event.data.type === 'stuff-height' && Number.isFinite(event.data.height) && event.data.height > 0) frame.style.height = event.data.height + 'px';
+});
+</script>
 <div style="position: absolute; bottom: 1em; left: 40px;"><a href="index.html"><img src="img/back.gif" width="33" height="34" border="0" alt="Wstęp" style="display: block;"></a></div>
 </ul>
 <!------------------KONIEC----------------------->

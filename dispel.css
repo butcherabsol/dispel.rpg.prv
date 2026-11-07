@@ -71,7 +71,7 @@ a.dis3:hover { color: #F65102; }
 a.category-heading, a.category-heading:hover { font: bold 11pt/12pt Verdana, sans-serif; color: orange; }
 
 /* Item descriptions use the same readable table style as Solucja. */
-.source-table { width: 100%; }
+.source-table { width: 50%; }
 .source-table td { font: 14px/1.4 Verdana, sans-serif; padding: 4px; vertical-align: top; }
 
 .magic-table { width: 256px; min-width: 256px; }
