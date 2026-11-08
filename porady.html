@@ -107,9 +107,23 @@
 <a href="zrodlo2.html" tppabs="http://free.of.pl/d/dispel/zrodlo2.html">Różne</a><br>
 <a href="zrodlo3.html" tppabs="http://free.of.pl/d/dispel/zrodlo3.html">Do questów</a><br>
 </div>
-<div class="stuff-column"><iframe id="stuff-frame" src="stuff.html?embed=1" title="Stuff" scrolling="no"></iframe></div>
+<div class="stuff-column"><iframe id="stuff-frame" title="Stuff" scrolling="no"></iframe></div>
 </div>
 <script>
+function loadStuffAtCurrentWidth() {
+  var frame = document.getElementById('stuff-frame');
+  var url = new URL('stuff.html?embed=1', location.href);
+  if (location.protocol === 'file:') {
+    var widths = { '1024px': '0', '1440px': '1', 'none': '2' };
+    url.searchParams.set('site-width', widths[document.body.style.maxWidth] || '1');
+  }
+  frame.src = url.href;
+}
+loadStuffAtCurrentWidth();
+document.addEventListener('DOMContentLoaded', function () {
+  var widthButton = document.querySelector('.width-button');
+  if (widthButton) widthButton.addEventListener('click', loadStuffAtCurrentWidth);
+});
 window.addEventListener('message', function (event) {
   var frame = document.getElementById('stuff-frame');
   if (event.source === frame.contentWindow && event.data && event.data.type === 'stuff-height' && Number.isFinite(event.data.height) && event.data.height > 0) frame.style.height = event.data.height + 'px';

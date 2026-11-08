@@ -75,3 +75,8 @@ a.category-heading, a.category-heading:hover { font: bold 11pt/12pt Verdana, san
 .source-table td { font: 14px/1.4 Verdana, sans-serif; padding: 4px; vertical-align: top; }
 
 .magic-table { width: 256px; min-width: 256px; }
+
+.stat-unavailable { color: #594733; }
+
+/* Give equipment names the same width, including short-name categories. */
+table.armory-names td:nth-child(2) { width: 130px; min-width: 130px; max-width: 130px; white-space: normal; }
