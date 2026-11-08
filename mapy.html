@@ -11,11 +11,12 @@
 <style>
 .map-layout { display: flex; align-items: stretch; gap: 24px; }
 .map-list { flex: 0 0 330px; position: relative; margin-bottom: 0; padding: 0 0 60px 20px; }
-.map-return { position: absolute; bottom: 16px; left: 20px; list-style: none; }
+.map-return { position: absolute; bottom: 16px; left: 0; list-style: none; }
 .map-return img, .map-theme-arrow img { display: block; }
 .map-preview { flex: 1; min-width: 0; margin: 0; display: flex; flex-direction: column; align-items: flex-start; }
 .map-canvas:not([hidden]) { width: min(502px, 100%); aspect-ratio: 1; background: white; display: flex; align-items: flex-start; justify-content: center; }
 .map-canvas img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+#map-image[src$="mapa12a-screenshot.png"] { clip-path: inset(0 0 0.57% 0); }
 .map-preview figcaption { margin-top: 1em; margin-bottom: calc(10px + 3em); color: orange; font-weight: bold; }
 .map-region { display: inline-block; margin: 12px 0; }
 .map-region:first-child { margin-top: 0; }
@@ -91,11 +92,9 @@
 </div>
         <hr width="140" style="5">
         </center></td>
-      <td width="100%" background=""  class="dis" valign="top"><br><div style="margin-left: 40px;">
+      <td width="100%" background=""  class="dis" valign="top"><br><div style="margin-left: 40px; margin-top: 1em;">
 <!---------------GŁÓWNY STUFF-------------------->
-<a class="dis3">MAPY</a><br><br>
-Mapy są dziełem Kuczego, bardzo się napracował, więc Wszelkie Prawa Zastrzeżone.<br>
-<br>
+<a class="dis3">MAPY</a><br>
 <div class="map-layout">
 <ul class="map-list" id="map-list">
 <a class="map-region" href="mapy/aesh.gif" tppabs="http://free.of.pl/d/dispel/mapy/aesh.gif" target="_blank"><b>AESH</b></a><br>
@@ -104,7 +103,7 @@ Mapy są dziełem Kuczego, bardzo się napracował, więc Wszelkie Prawa Zastrze
 <li><a href="mapy/mapa10a.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa10a.gif" target="_blank">1 poziom Grobowca Ostatniego Papieża</a><br>
 <li><a href="mapy/mapa10b.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa10b.gif" target="_blank">2 poziom Grobowca Ostatniego Papieża</a><br>
 <li><a href="mapy/mapa7.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa7.gif" target="_blank">Loch Nhomów (Jaskinia Goblinów, bug)</a><br>
-<li><a href="mapy/mapa12a.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa12a.gif" target="_blank">1 poziom Lochu Pieczęci</a><br>
+<li><a href="mapy/mapa12a-screenshot.png" tppabs="http://free.of.pl/d/dispel/mapy/mapa12a.gif" target="_blank">1 poziom Lochu Pieczęci</a><br>
 <li><a href="mapy/mapa12b.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa12b.gif" target="_blank">2 poziom Lochu Pieczęci</a><br>
 <li><a href="mapy/mapa12c.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa12c.gif" target="_blank">3 poziom Lochu Pieczęci</a><br>
 <li>1 poziom Lochu Pieczęci (Harass)<br>
@@ -132,6 +131,7 @@ Mapy są dziełem Kuczego, bardzo się napracował, więc Wszelkie Prawa Zastrze
 <figure class="map-preview" aria-live="polite">
   <figcaption id="map-caption">Wybierz mapę z listy.</figcaption>
   <div class="map-canvas dark" id="map-canvas" hidden><img id="map-image" alt="" hidden></div>
+  <p id="map-credit" hidden style="font-style: italic; margin: 12px 0;">Mapy są dziełem Kuczego, bardzo się napracował, więc Wszelkie Prawa Zastrzeżone.</p>
   <button class="map-theme-arrow" id="map-theme-arrow" type="button" aria-label="Zmień tryb jasny lub ciemny mapy" aria-pressed="true" hidden><img id="map-theme-icon" src="img/map-mode-light.png" width="33" height="34" alt=""></button>
 </figure>
 </div>
@@ -153,6 +153,7 @@ document.getElementById('map-list').addEventListener('click', function (event) {
   image.alt = 'Mapa: ' + name;
   image.hidden = false;
   document.getElementById('map-canvas').hidden = false;
+  document.getElementById('map-credit').hidden = false;
   document.getElementById('map-theme-arrow').hidden = false;
   document.getElementById('map-caption').textContent = name;
 });
