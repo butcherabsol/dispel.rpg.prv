@@ -14,10 +14,13 @@
 .map-return { position: absolute; bottom: 16px; left: 0; list-style: none; }
 .map-return img, .map-theme-arrow img { display: block; }
 .map-preview { flex: 1; min-width: 0; margin: 0; display: flex; flex-direction: column; align-items: flex-start; }
-.map-canvas:not([hidden]) { width: min(502px, 100%); aspect-ratio: 1; background: white; display: flex; align-items: flex-start; justify-content: center; }
+.map-canvas:not([hidden]) { width: min(640px, 100%); aspect-ratio: 1; background: white; display: flex; align-items: flex-start; justify-content: center; }
 .map-canvas img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+.map-canvas.large-map:not([hidden]) { aspect-ratio: auto; }
+.map-canvas.large-map img { width: 100%; max-height: none; }
 #map-image[src$="mapa12a-screenshot.png"] { clip-path: inset(0 0 0.57% 0); }
 .map-preview figcaption { margin-top: 1em; margin-bottom: calc(10px + 3em); color: orange; font-weight: bold; }
+.map-preview figcaption.large-map-title { margin-bottom: 0; }
 .map-region { display: inline-block; margin: 12px 0; }
 .map-region:first-child { margin-top: 0; }
 .map-canvas.dark { filter: invert(1) hue-rotate(180deg); }
@@ -97,34 +100,34 @@
 <a class="dis3">MAPY</a><br>
 <div class="map-layout">
 <ul class="map-list" id="map-list">
-<a class="map-region" href="mapy/aesh.gif" tppabs="http://free.of.pl/d/dispel/mapy/aesh.gif" target="_blank"><b>AESH</b></a><br>
-<li><a href="mapy/mapa6.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa6.gif" target="_blank">Loch Goblinów (Jaskinia Nhom, bug)</a><br>
-<li><a href="mapy/mapa8.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa8.gif" target="_blank">Loch Bandytów (Jaskinia Bandytów)</a><br>
-<li><a href="mapy/mapa10a.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa10a.gif" target="_blank">1 poziom Grobowca Ostatniego Papieża</a><br>
-<li><a href="mapy/mapa10b.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa10b.gif" target="_blank">2 poziom Grobowca Ostatniego Papieża</a><br>
-<li><a href="mapy/mapa7.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa7.gif" target="_blank">Loch Nhomów (Jaskinia Goblinów, bug)</a><br>
-<li><a href="mapy/mapa12a-screenshot.png" tppabs="http://free.of.pl/d/dispel/mapy/mapa12a.gif" target="_blank">1 poziom Lochu Pieczęci</a><br>
-<li><a href="mapy/mapa12b.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa12b.gif" target="_blank">2 poziom Lochu Pieczęci</a><br>
-<li><a href="mapy/mapa12c.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa12c.gif" target="_blank">3 poziom Lochu Pieczęci</a><br>
-<li>1 poziom Lochu Pieczęci (Harass)<br>
-<li>2 poziom Lochu Pieczęci (Harass)<br>
-<li>3 poziom Lochu Pieczęci (Harass)<br>
-<a class="map-region" href="mapy/shereg.gif" tppabs="http://free.of.pl/d/dispel/mapy/shereg.gif" target="_blank"><b>SHEREG</b></a><br>
-<li>1 poziom Lochu Halroma (Sanktuarium Harloma)<br>
-<li>2 poziom Lochu Halroma (Sanktuarium Harloma)<br>
-<li>Loch Białego Smoka<br>
-<li><a href="mapy/mapa3.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa3.gif" target="_blank">Loch Yeti (Jama Yeti)</a><br>
-<li><a href="mapy/mapa13.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa13.gif" target="_blank">Loch Draków (Opuszczona Kopalnia)</a><br>
-<li><a href="mapy/mapa4.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa4.gif" target="_blank">Loch Wilka (Jaskinia Wilka)</a><br>
-<li><a href="mapy/mapa5.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa5.gif" target="_blank">Loch Mainamaia (Jaskinia Mainamaia)</a><br>
-<a class="map-region" href="mapy/yam.gif" tppabs="http://free.of.pl/d/dispel/mapy/yam.gif" target="_blank"><b>YAM</b></a><br>
-<li>Loch Minotaura<br>
-<li><a href="mapy/mapa1.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa1.gif" target="_blank">Loch Kąsajacego Robaka (Jama Kąsającego Robaka)</a><br>
-<li><a href="mapy/mapa11.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa11.gif" target="_blank">Loch Kościejów</a><br>
-<li><a href="mapy/mapa9.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa9.gif" target="_blank">Loch Czerwonego Smoka (Czerwony Smok)</a><br>
-<li>1 poziom Lochu Balroka<br>
-<li>2 poziom Lochu Balroka<br>
-<li><a href="mapy/mapa2.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa2.gif" target="_blank">Loch Rożców Spuki (Sanktuarium Rożców Corzonów)</a><br>
+<a data-credit="kuczy" class="map-region" href="mapy/aesh.gif" tppabs="http://free.of.pl/d/dispel/mapy/aesh.gif" target="_blank"><b>AESH</b></a><br>
+<li><a data-credit="kuczy" href="mapy/mapa6.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa6.gif" target="_blank">Loch Goblinów (Jaskinia Nhom, bug)</a><br>
+<li><a data-credit="kuczy" href="mapy/mapa8.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa8.gif" target="_blank">Loch Bandytów (Jaskinia Bandytów)</a><br>
+<li><a data-credit="kuczy" href="mapy/mapa10a.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa10a.gif" target="_blank">1 poziom Grobowca Ostatniego Papieża</a><br>
+<li><a data-credit="kuczy" href="mapy/mapa10b.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa10b.gif" target="_blank">2 poziom Grobowca Ostatniego Papieża</a><br>
+<li><a data-credit="kuczy" href="mapy/mapa7.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa7.gif" target="_blank">Loch Nhomów (Jaskinia Goblinów, bug)</a><br>
+<li><a data-credit="kuczy" href="mapy/mapa12a-screenshot.png" tppabs="http://free.of.pl/d/dispel/mapy/mapa12a.gif" target="_blank">1 poziom Lochu Pieczęci</a><br>
+<li><a data-credit="kuczy" href="mapy/mapa12b.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa12b.gif" target="_blank">2 poziom Lochu Pieczęci</a><br>
+<li><a data-credit="kuczy" href="mapy/mapa12c.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa12c.gif" target="_blank">3 poziom Lochu Pieczęci</a><br>
+<li><a href="mapy/lochu_pieczeci_harass_poziom1.png" data-large-map="true">1 poziom Lochu Pieczęci (Harass)</a><br>
+<li><a href="mapy/lochu_pieczeci_harass_poziom2.png" data-large-map="true">2 poziom Lochu Pieczęci (Harass)</a><br>
+<li><a href="mapy/lochu_pieczeci_harass_poziom3.png" data-large-map="true">3 poziom Lochu Pieczęci (Harass)</a><br>
+<a data-credit="kuczy" class="map-region" href="mapy/shereg.gif" tppabs="http://free.of.pl/d/dispel/mapy/shereg.gif" target="_blank"><b>SHEREG</b></a><br>
+<li><a href="mapy/lochu_halroma_poziom1A.png" data-large-map="true">1 poziom Lochu Halroma (Sanktuarium Harloma)</a><br>
+<li><a href="mapy/lochu_halroma_poziom2.png" data-large-map="true">2 poziom Lochu Halroma (Sanktuarium Harloma)</a><br>
+<li><a href="mapy/loch_bialego_smoka.png" data-large-map="true">Loch Białego Smoka</a><br>
+<li><a data-credit="kuczy" href="mapy/mapa3.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa3.gif" target="_blank">Loch Yeti (Jama Yeti)</a><br>
+<li><a data-credit="kuczy" href="mapy/mapa13.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa13.gif" target="_blank">Loch Draków (Opuszczona Kopalnia)</a><br>
+<li><a data-credit="kuczy" href="mapy/mapa4.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa4.gif" target="_blank">Loch Wilka (Jaskinia Wilka)</a><br>
+<li><a data-credit="kuczy" href="mapy/mapa5.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa5.gif" target="_blank">Loch Mainamaia (Jaskinia Mainamaia)</a><br>
+<a data-credit="kuczy" class="map-region" href="mapy/yam.gif" tppabs="http://free.of.pl/d/dispel/mapy/yam.gif" target="_blank"><b>YAM</b></a><br>
+<li><a href="mapy/maze_minotaura_PL.png" data-large-map="true">Loch Minotaura</a><br>
+<li><a data-credit="kuczy" href="mapy/mapa1.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa1.gif" target="_blank">Loch Kąsajacego Robaka (Jama Kąsającego Robaka)</a><br>
+<li><a data-credit="kuczy" href="mapy/mapa11.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa11.gif" target="_blank">Loch Kościejów</a><br>
+<li><a data-credit="kuczy" href="mapy/mapa9.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa9.gif" target="_blank">Loch Czerwonego Smoka (Czerwony Smok)</a><br>
+<li><a href="mapy/maze_barlog1_corrected_PL.png" data-large-map="true">1 poziom Lochu Balroka</a><br>
+<li><a href="mapy/lochu_balroka_poziom2.png" data-large-map="true">2 poziom Lochu Balroka</a><br>
+<li><a data-credit="kuczy" href="mapy/mapa2.gif" tppabs="http://free.of.pl/d/dispel/mapy/mapa2.gif" target="_blank">Loch Rożców Spuki (Sanktuarium Rożców Corzonów)</a><br>
 <br>
 <li class="map-return"><a href="index.html"><img src="img/back.gif" width="33" height="34" border="0" alt="Wstęp"></a></li>
 </ul>
@@ -152,10 +155,14 @@ document.getElementById('map-list').addEventListener('click', function (event) {
   image.src = link.href;
   image.alt = 'Mapa: ' + name;
   image.hidden = false;
-  document.getElementById('map-canvas').hidden = false;
-  document.getElementById('map-credit').hidden = false;
+  var canvas = document.getElementById('map-canvas');
+  canvas.classList.toggle('large-map', link.dataset.largeMap === 'true');
+  canvas.hidden = false;
+  document.getElementById('map-credit').hidden = link.dataset.credit !== 'kuczy';
   document.getElementById('map-theme-arrow').hidden = false;
-  document.getElementById('map-caption').textContent = name;
+  var caption = document.getElementById('map-caption');
+  caption.textContent = name;
+  caption.classList.toggle('large-map-title', link.dataset.largeMap === 'true');
 });
 </script>
 <!------------------KONIEC----------------------->
